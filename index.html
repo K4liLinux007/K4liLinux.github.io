@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Gallery</title>
+<title>Video Gallery con Didascalie</title>
 <style>
   .video-gallery {
     display: flex;
@@ -13,44 +13,84 @@
   }
   .video-item {
     flex-basis: calc(50% - 10px);
+    position: relative;
   }
   video {
     width: 100%;
     max-width: 100%;
     height: auto;
   }
+  .caption {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .btn-caption {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
 </style>
+<script>
+function toggleCaption(id) {
+  var caption = document.getElementById('caption-' + id);
+  if(caption.style.display === 'none') {
+    caption.style.display = 'block';
+  } else {
+    caption.style.display = 'none';
+  }
+}
+</script>
 </head>
 <body>
 
 <div class="video-gallery">
+  
+  <!-- Video 1 -->
   <div class="video-item">
-    <video controls>
-      <source src="GRAPHIC-DEMONSTRATIONS/GEOGEBRA-ANGLE.mp4" type="video/mp4">
+    <video loop controls>
+      <source src="GRAPHIC-DEMONSTRATIONS\GEOGEBRA-ANGLE.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
+    <div id="caption-1" class="caption">Didascalia del Primo Video</div>
+    <button class="btn-caption" onclick="toggleCaption(1)">Mostra/Nascondi Didascalia</button>
   </div>
 
+  <!-- Video 2 -->
   <div class="video-item">
-    <video controls>
-      <source src="GRAPHIC-DEMONSTRATIONS/GEOGEBRA-ANGLE.mp4" type="video/mp4">
+    <video loop controls>
+      <source src="url_del_tuo_secondo_video.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
+    <div id="caption-2" class="caption">Didascalia del Secondo Video</div>
+    <button class="btn-caption" onclick="toggleCaption(2)">Mostra/Nascondi Didascalia</button>
   </div>
 
+  <!-- Video 3 -->
   <div class="video-item">
-    <video controls>
-      <source src="GRAPHIC-DEMONSTRATIONS/GEOGEBRA-ANGLE.mp4" type="video/mp4">
+    <video loop controls>
+      <source src="url_del_tuo_terzo_video.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
+    <div id="caption-3" class="caption">Didascalia del Terzo Video</div>
+    <button class="btn-caption" onclick="toggleCaption(3)">Mostra/Nascondi Didascalia</button>
   </div>
 
+  <!-- Video 4 -->
   <div class="video-item">
-    <video controls>
-      <source src="GRAPHIC-DEMONSTRATIONS/GEOGEBRA-ANGLE.mp4" type="video/mp4">
+    <video loop controls>
+      <source src="url_del_tuo_quarto_video.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
+    <div id="caption-4" class="caption">Didascalia del Quarto Video</div>
+    <button class="btn-caption" onclick="toggleCaption(4)">Mostra/Nascondi Didascalia</button>
   </div>
+  
 </div>
 
 </body>
