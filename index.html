@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Gallery con Didascalie</title>
+<title>Correlazione fra Pendolo e Moto Armonico</title>
 <style>
   .video-gallery {
     display: flex;
@@ -23,17 +23,26 @@
   .caption {
     display: none;
     position: absolute;
-    bottom: 5px;
+    bottom: 40px; /* Spazio aggiunto per non accavallare il bottone */
     left: 5px;
     background-color: rgba(0,0,0,0.7);
     color: white;
     padding: 5px;
     border-radius: 5px;
+    max-width: calc(100% - 10px);
   }
   .btn-caption {
     position: absolute;
     bottom: 5px;
     right: 5px;
+    z-index: 2; /* Assicura che il bottone sia sopra gli altri elementi */
+  }
+  header {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    background: #f8f8f8;
+    margin-bottom: 20px;
   }
 </style>
 <script>
@@ -49,22 +58,24 @@ function toggleCaption(id) {
 </head>
 <body>
 
+<header>
+  <h1>Dimostrazione grafica della correlazione fra pendolo e moto armonico</h1>
+</header>
+
 <div class="video-gallery">
-  
   <!-- Video 1 -->
   <div class="video-item">
-    <video loop controls>
+    <video loop autoplay muted controls> <!-- Aggiunto autoplay e muted per il play automatico -->
       <source src="GRAPHIC-DEMONSTRATIONS\GEOGEBRA-ANGLE.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
-    <div id="caption-1" class="caption">IL MOTO ARMONICO E UN MOTO IL MOTO ARMONICO è 
-      UN MOTO ARMONIOSPHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</div>
+    <div id="caption-1" class="caption">Didascalia del Primo Video</div>
     <button class="btn-caption" onclick="toggleCaption(1)">Mostra/Nascondi Didascalia</button>
   </div>
 
   <!-- Video 2 -->
   <div class="video-item">
-    <video loop controls>
+    <video loop autoplay muted controls>
       <source src="url_del_tuo_secondo_video.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
@@ -74,7 +85,7 @@ function toggleCaption(id) {
 
   <!-- Video 3 -->
   <div class="video-item">
-    <video loop controls>
+    <video loop autoplay muted controls>
       <source src="url_del_tuo_terzo_video.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
@@ -84,14 +95,13 @@ function toggleCaption(id) {
 
   <!-- Video 4 -->
   <div class="video-item">
-    <video loop controls>
+    <video loop autoplay muted controls>
       <source src="url_del_tuo_quarto_video.mp4" type="video/mp4">
       Il tuo browser non supporta il tag video.
     </video>
     <div id="caption-4" class="caption">Didascalia del Quarto Video</div>
     <button class="btn-caption" onclick="toggleCaption(4)">Mostra/Nascondi Didascalia</button>
   </div>
-  
 </div>
 
 </body>
